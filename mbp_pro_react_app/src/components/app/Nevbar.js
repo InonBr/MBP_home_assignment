@@ -1,4 +1,4 @@
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, Form, Button } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import ImagesCrossfade from './imagesCrossfade';
@@ -24,6 +24,10 @@ function Nevbar() {
             page 4
           </Nav.Link>
         </Nav>
+
+        <Form inline>
+          <Button variant='outline-info'>logout</Button>
+        </Form>
       </Navbar>
 
       <Router>
