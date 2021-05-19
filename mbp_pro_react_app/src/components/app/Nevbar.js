@@ -1,6 +1,8 @@
 import { Navbar, Nav } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+import ImagesCrossfade from './imagesCrossfade';
+
 function Nevbar() {
   return (
     <>
@@ -39,7 +41,7 @@ function Nevbar() {
           </Route>
 
           <Route path='/'>
-            <h1>page 1</h1>
+            <ImagesCrossfade />
           </Route>
         </Switch>
       </Router>
