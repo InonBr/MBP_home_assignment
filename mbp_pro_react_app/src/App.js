@@ -1,10 +1,11 @@
-import { Button } from 'react-bootstrap';
 import './App.css';
+
+import Nevbar from './components/app/Nevbar';
 
 function App() {
   return (
     <div className='App'>
-      <Button variant='primary'>Primary</Button>{' '}
+      <Nevbar />
     </div>
   );
 }
