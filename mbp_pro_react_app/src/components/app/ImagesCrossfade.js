@@ -22,7 +22,7 @@ const ImagesCrossfade = () => {
         {fadeImages.map((each, index) => (
           <img
             key={index}
-            style={{ width: '80%' }}
+            style={{ width: '60%', height: '80%' }}
             src={each}
             alt={'images slide show'}
           />
