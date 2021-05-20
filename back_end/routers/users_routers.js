@@ -7,10 +7,6 @@ const jwt = require('jsonwebtoken');
 
 const User = require('../models/User');
 
-router.get('/', (req, res) => {
-  res.send('hello world');
-});
-
 router.post(
   '/register',
   [
