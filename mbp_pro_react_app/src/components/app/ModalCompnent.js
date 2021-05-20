@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Modal } from 'react-bootstrap';
 import RegisterForm from './RegisterForm';
+import LoginFrom from './LoginForm';
 
 const ModalCompnent = (props) => {
   const [headMessage, setHeadMessage] = useState('');
@@ -22,10 +23,11 @@ const ModalCompnent = (props) => {
       <Modal.Header closeButton>
         <Modal.Title>{headMessage}</Modal.Title>
       </Modal.Header>
-      <div className='m-3'>
+
+      <Modal.Body>
         {props.type === 'register' && <RegisterForm closeModal={props.func} />}
-        <Modal.Body>some body</Modal.Body>
-      </div>
+        {props.type === 'login' && <LoginFrom closeModal={props.func} />}
+      </Modal.Body>
     </Modal>
   );
 };

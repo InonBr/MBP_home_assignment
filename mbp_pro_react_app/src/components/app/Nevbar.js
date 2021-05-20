@@ -1,10 +1,32 @@
+import { useState } from 'react';
 import { Navbar, Nav, Form, Button } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 import ImagesCrossfade from './ImagesCrossfade';
 import LoginPage from './LoginPage';
 
 function Nevbar() {
+  const cookies = new Cookies();
+  const [showlogout, setShowlogout] = useState(false);
+
+  const showLogoutButton = () => {
+    setShowlogout(true);
+  };
+
+  const handleLogout = () => {
+    cookies.remove('userToken');
+    window.location = '/';
+  };
+
+  const logoutButton = () => {
+    return (
+      <Button variant='outline-info' onClick={() => handleLogout()}>
+        logout
+      </Button>
+    );
+  };
+
   return (
     <>
       <Navbar className='nev' bg='dark' variant='dark'>
@@ -26,15 +48,13 @@ function Nevbar() {
           </Nav.Link>
         </Nav>
 
-        <Form inline>
-          <Button variant='outline-info'>logout</Button>
-        </Form>
+        <Form inline>{showlogout && logoutButton()}</Form>
       </Navbar>
 
       <Router>
         <Switch>
           <Route path='/page_2'>
-            <LoginPage />
+            <LoginPage func={showLogoutButton} />
           </Route>
 
           <Route path='/page_3'>
