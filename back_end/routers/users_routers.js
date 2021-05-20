@@ -65,7 +65,7 @@ router.post(
           id: newUser._id,
           firstName: newUser.firstName,
           lastName: newUser.lastName,
-          phoneNumbe: newUser.phoneNumber,
+          phoneNumber: newUser.phoneNumber,
           email: newUser.email,
         },
         process.env.TOKEN
@@ -120,7 +120,7 @@ router.post(
           id: user._id,
           firstName: user.firstName,
           lastName: user.lastName,
-          phoneNumbe: user.phoneNumbe,
+          phoneNumber: user.phoneNumber,
           email: user.email,
         },
         process.env.TOKEN
