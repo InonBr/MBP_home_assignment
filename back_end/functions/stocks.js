@@ -8,12 +8,17 @@ const getStocksImages = (arr, stocksApi, res) => {
   for (let i = 0; i <= arr.length - 1; i++) {
     symbolData(arr[i], stocksApi).then(async (response) => {
       arr[i].id = i + 1;
-      arr[i].allData = response.data.profile;
+      arr[i].allData = await response.data.profile;
 
+      setTimeout;
       if (i + 1 > arr.length - 1) {
-        return res.status(200).json({
-          data: arr,
-        });
+        setTimeout(() => {
+          arr = arr.filter((stock) => stock.allData);
+
+          return res.status(200).json({
+            data: arr,
+          });
+        }, 3000);
       }
     });
   }
