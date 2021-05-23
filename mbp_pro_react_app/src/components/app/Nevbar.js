@@ -5,6 +5,7 @@ import Cookies from 'universal-cookie';
 
 import ImagesCrossfade from './ImagesCrossfade';
 import LoginPage from './LoginPage';
+import StockPage from './StockPage';
 
 function Nevbar() {
   const cookies = new Cookies();
@@ -58,7 +59,7 @@ function Nevbar() {
           </Route>
 
           <Route path='/page_3'>
-            <h1>page_3</h1>
+            <StockPage />
           </Route>
 
           <Route path='/page_4'>

@@ -1,4 +1,4 @@
-import { registerUrl, loginUrl } from './url';
+import { registerUrl, loginUrl, stockUrl } from './url';
 const axios = require('axios');
 
 const registerApi = (obj) => {
@@ -9,4 +9,8 @@ const loginApi = (obj) => {
   return axios.post(loginUrl, obj);
 };
 
-export { registerApi, loginApi };
+const getStocksApi = () => {
+  return axios.get(stockUrl);
+};
+
+export { registerApi, loginApi, getStocksApi };
