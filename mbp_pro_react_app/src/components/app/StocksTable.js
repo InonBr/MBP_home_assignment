@@ -7,8 +7,6 @@ const StocksTable = (props) => {
   const [stocks, setStocks] = useState([]);
   const [showLoading, setShowLoading] = useState(true);
 
-  console.log(stocks);
-
   useEffect(() => {
     if (props.method === '') {
       getStocksApi().then((response) => {
@@ -16,9 +14,10 @@ const StocksTable = (props) => {
         setShowLoading(false);
       });
     } else if (props.method === 'Alphabetically') {
-      const newArr = [...stocks];
+      const sortedArr = [...stocks];
 
-      newArr.sort((a, b) => {
+      //   sort A to Z
+      sortedArr.sort((a, b) => {
         const nameA = a.name.toUpperCase(); // ignore upper and lowercase
         const nameB = b.name.toUpperCase(); // ignore upper and lowercase
 
@@ -29,8 +28,19 @@ const StocksTable = (props) => {
         return 0;
       });
 
-      setStocks(newArr);
+      setStocks(sortedArr);
+    } else if (props.method === 'Numerically') {
+      const sortedArr = [...stocks];
+
+      //   sort from biggest to smallest
+      sortedArr.sort((a, b) => {
+        return b.allData.price - a.allData.price;
+      });
+
+      setStocks(sortedArr);
     }
+
+    // eslint-disable-next-line
   }, [props]);
 
   const tableData = () => {
