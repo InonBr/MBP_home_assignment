@@ -6,6 +6,7 @@ import Cookies from 'universal-cookie';
 import ImagesCrossfade from './ImagesCrossfade';
 import LoginPage from './LoginPage';
 import StockPage from './StockPage';
+import YouTubePage from './YouTubePage';
 
 function Nevbar() {
   const cookies = new Cookies();
@@ -28,6 +29,14 @@ function Nevbar() {
     );
   };
 
+  const page_4_show_link = () => {
+    return (
+      <Nav.Link exact='true' className='link' href='/page_4'>
+        page 4
+      </Nav.Link>
+    );
+  };
+
   return (
     <>
       <Navbar className='nev' bg='dark' variant='dark'>
@@ -44,12 +53,10 @@ function Nevbar() {
             page 3
           </Nav.Link>
 
-          <Nav.Link exact='true' className='link' href='/page_4'>
-            page 4
-          </Nav.Link>
+          {cookies.get('userToken') && page_4_show_link()}
         </Nav>
 
-        <Form inline>{showlogout && logoutButton()}</Form>
+        <Form inline>{cookies.get('userToken') && logoutButton()}</Form>
       </Navbar>
 
       <Router>
@@ -63,7 +70,7 @@ function Nevbar() {
           </Route>
 
           <Route path='/page_4'>
-            <h1>page_4</h1>
+            <YouTubePage />
           </Route>
 
           <Route path='/'>

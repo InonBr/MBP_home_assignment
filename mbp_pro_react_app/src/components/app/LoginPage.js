@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import Cookies from 'universal-cookie';
 import ModalCompnent from './ModalCompnent';
 import jwt_decode from 'jwt-decode';
+import UserData from './UserData';
 import '../styles/page_2.css';
 
 const LoginPage = (props) => {
@@ -51,22 +52,11 @@ const LoginPage = (props) => {
     );
   };
 
-  const userData = () => {
-    return (
-      <div className='text-align'>
-        <h4>First name: {userDataObj.firstName}</h4>
-        <h4>Last name: {userDataObj.lastName}</h4>
-        <h4>Phone number: {userDataObj.phoneNumber}</h4>
-        <h4>email: {userDataObj.email}</h4>
-      </div>
-    );
-  };
-
   return (
     <>
       {showButtons && loginButtons()}
       <ModalCompnent type={modalType} bool={modalState} func={handleClose} />
-      {userData()}
+      <UserData userDataObj={userDataObj} />
     </>
   );
 };
