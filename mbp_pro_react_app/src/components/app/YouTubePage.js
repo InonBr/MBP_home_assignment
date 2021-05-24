@@ -25,6 +25,8 @@ const YouTubePage = () => {
   }, [cookies.get('userToken')]);
 
   const setLinkFunc = (link) => {
+    // set link in localStorage for remembering after reload
+    localStorage.setItem('videoUrl', link);
     setLinkToPlat(link);
   };
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import { Image } from 'react-bootstrap';
 import '../styles/forms.css';
@@ -6,7 +6,16 @@ import '../styles/image.css';
 
 const VideoPlayer = (props) => {
   const [showPlayer, setShowPlayer] = useState(true);
-  console.log(props.link);
+  const [linkToPlay, setLinkToPlay] = useState('');
+
+  useEffect(() => {
+    const localStorageLink = localStorage.getItem('videoUrl');
+
+    if (localStorageLink && !props.linkToPlat) {
+      setLinkToPlay(localStorageLink);
+      setShowPlayer(true);
+    }
+  }, [props]);
 
   const videoPlayerError = () => {
     setShowPlayer(false);
@@ -17,7 +26,7 @@ const VideoPlayer = (props) => {
       <div className='center-div'>
         <ReactPlayer
           controls
-          url='https://www.youtube.com/watch?v=ysz5S6PUM-U'
+          url={linkToPlay}
           onError={() => videoPlayerError()}
         />
       </div>

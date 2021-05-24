@@ -12,6 +12,8 @@ const LinkForm = (props) => {
   const hendleSubmit = (event) => {
     event.preventDefault();
     props.setLink(link);
+
+    setLink('');
   };
 
   return (
@@ -22,6 +24,7 @@ const LinkForm = (props) => {
           <Form.Control
             type='url'
             placeholder='Enter url'
+            value={link}
             onInput={(event) => hendleUrlInput(event)}
           />
         </Form.Group>
