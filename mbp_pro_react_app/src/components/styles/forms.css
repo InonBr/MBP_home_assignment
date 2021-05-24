@@ -9,3 +9,12 @@
 .center-form {
   margin: auto;
 }
+
+.form-size {
+  width: 50%;
+}
+
+.center-div {
+  display: flex;
+  justify-content: center;
+}

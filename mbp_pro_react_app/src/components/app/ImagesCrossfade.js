@@ -1,6 +1,5 @@
 import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
-import '../styles/slide_container.css';
 
 const ImagesCrossfade = () => {
   const fadeImages = [
